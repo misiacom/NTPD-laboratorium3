@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 import numpy as np
 from sklearn.linear_model import LinearRegression
+import os
 
 app = Flask(__name__)
 
+API_KEY = os.environ.get("API_KEY", "default_key")
 #dane treningowe
 X = np.array([[1], [2], [3], [4], [5]])
 y = np.array([2, 4, 6, 8, 10])
@@ -15,7 +17,8 @@ model.fit(X, y)
 #endpoint główny
 @app.route("/")
 def home():
-    return jsonify({"message": "Witaj w moim API!"})
+    return jsonify({"message": "Witaj w moim API!",
+                    "api_key": API_KEY})
 
 #endpoint predykcji
 @app.route("/predict", methods=["POST"])

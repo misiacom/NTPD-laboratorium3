@@ -74,3 +74,39 @@ environment:
 W Pythonie można je odczytać:
 import os
 port = int(os.environ.get("PORT", 5000))
+
+# Sprawozdanie 5
+
+https://ml-api-service-902861812719.europe-west1.run.app - publiczny endpoint
+Wdrożenia serverless 
+Zalety:
+-Brak konieczności zarządzania serwerem — infrastruktura jest utrzymywana przez dostawcę chmury
+-Automatyczne skalowanie — aplikacja dostosowuje się do ruchu
+-Płatność za użycie — płacisz tylko za czas działania aplikacji
+-Łatwe wdrożenie — szybkie uruchomienie aplikacji z kontenera
+-Wysoka dostępność — dostawca zapewnia niezawodność
+Wady:
+-Cold start — opóźnienie przy pierwszym uruchomieniu aplikacji
+-Ograniczona kontrola nad środowiskiem i konfiguracją
+-Limity zasobów (CPU, RAM, czas działania)
+-Zależność od dostawcy (vendor lock-in)
+-Koszty mogą rosnąć przy dużym ruchu
+-Własny serwer (on-premise / VPS)
+Zalety:
+-Pełna kontrola nad środowiskiem i konfiguracją
+-Brak ograniczeń platformy (można dostosować system według potrzeb)
+-Stałe koszty (np. VPS) niezależnie od ruchu
+-Brak cold startów — aplikacja działa cały czas
+Wady:
+-Konieczność zarządzania serwerem (aktualizacje, bezpieczeństwo)
+-Większa odpowiedzialność za stabilność i dostępność
+-Skalowanie wymaga ręcznej konfiguracji
+-Wyższy próg wejścia (konfiguracja infrastruktury)
+-Koszty utrzymania nawet przy braku ruchu
+
+### Konfiguracja zmiennych środowiskowych w Google Cloud Run
+
+Zmienne środowiskowe zostały skonfigurowane w usłudze Cloud Run
+w sekcji "Variables & Secrets", gdzie dodano zmienną:
+- Name: API_KEY  
+- Value: 12345-secret-key  
